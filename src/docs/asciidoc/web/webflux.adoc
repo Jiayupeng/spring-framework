@@ -1749,26 +1749,26 @@ controller. The following code snippet shows the usage:
 
 [TIP]
 ====
-Unlike the Servlet API "request paramater" concept that conflate query parameters, form
+Unlike the Servlet API "request parameter" concept that conflates query parameters, form
 data, and multiparts into one, in WebFlux each is accessed individually through the
-`ServerWebExchange`. While `@RequestParam` binds to query parameters only, you can
-use data binding to apply query paramerters, form data, and multiparts to a
+`ServerWebExchange`. While `@RequestParam` binds to query parameters only, you can use
+data binding to apply query parameters, form data, and multiparts to a
 <<webflux-ann-modelattrib-method-args,command object>>.
 ====
 
 Method parameters using using the `@RequestParam` annotation are required by default, but
 you can specify that a method parameter is optional by setting ``@RequestParam``'s
-`required` flag to `false` or by declaring the argument with an `java.util.Optional`
+`required` flag to `false` or by declaring the argument with a `java.util.Optional`
 wrapper.
 
 Type conversion is applied automatically if the target method parameter type is not
 `String`. See <<mvc-ann-typeconversion>>.
 
-When an `@RequestParam` annotation is declared as `Map<String, String>` or
+When an `@RequestParam` annotation is declared on a `Map<String, String>` or
 `MultiValueMap<String, String>` argument, the map is populated with all query parameters.
 
-Note that use of `@RequestParam` is optional, e.g. to set its attributes.
-By default any argument that is a simple value type, as determined by
+Note that use of `@RequestParam` is optional -- for example, to set its attributes. By
+default any argument that is a simple value type, as determined by
 {api-spring-framework}/beans/BeanUtils.html#isSimpleProperty-java.lang.Class-[BeanUtils#isSimpleProperty],
 and is not resolved by any other argument resolver, is treated as if it was annotated
 with `@RequestParam`.
